@@ -1,36 +1,57 @@
-// /string/i becomes case-insensitive
-function computerPlay () {
-    let choices = ['rock','paper','scissors']
-    return choices[Math.floor(Math.random() * 3)]
-}
-
 function playerPlay () {
     let input = prompt("Rock, paper, or scissors?")
     return input.toLowerCase()
 }
 
+function computerPlay () {
+    let choices = ['rock','paper','scissors']
+    return choices[Math.floor(Math.random() * 3)]
+}
+
 function playRound(playerSelection, computerSelection) {
     let result
     if (playerSelection == "rock") {
-        (computerSelection == "rock") ? result = "Tie" : 
-        (computerSelection == "paper") ? result = "You lose" :
-        result = "You win"
+        (computerSelection == "rock") ? result = "T" : 
+        (computerSelection == "paper") ? result = "L" :
+        result = "W"
     }   else if (playerSelection == "paper") {
-        (computerSelection == "rock") ? result = "You win" : 
-        (computerSelection == "paper") ? result = "Tie" :
-        result = "You lose"
+        (computerSelection == "rock") ? result = "W" : 
+        (computerSelection == "paper") ? result = "T" :
+        result = "L"
     }   else if (playerSelection == "scissors") {
-        (computerSelection == "rock") ? result = "You lose" : 
-        (computerSelection == "paper") ? result = "Tie" :
-        result = "You win"
+        (computerSelection == "rock") ? result = "L" : 
+        (computerSelection == "paper") ? result = "T" :
+        result = "W"
     }   else {
-        result = "Invalid entry"
+        result = "undefined"
         }
     return result
 }
 
-let playerSelection = playerPlay()
-let computerSelection = computerPlay()
-console.log(playRound(playerSelection, computerSelection));
-console.log("Player:" + playerSelection)
-console.log("Computer:" + computerSelection)
+function game () {
+    let counter = 0
+    let playerScore = 0;
+    let computerScore = 0;
+    while (counter < 5) {
+        let result = playRound(playerPlay(), computerPlay())
+        if (result == "W") {
+            playerScore++
+            alert("player:" + playerScore + "computer:" + computerScore)
+            counter++
+        }   else if (result == "L") {
+            computerScore++
+            alert("player:" + playerScore + "computer:" + computerScore)
+            counter++
+        }   else if (result == "T"){
+            alert("Tie")
+            counter++
+        }   else {
+            alert("Invalid entry")
+        }
+
+    }
+    alert("player:" + playerScore + "computer:" + computerScore)
+}
+
+
+game()
