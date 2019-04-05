@@ -50,6 +50,13 @@ function game () {
         }
 
     }
+    if (playerScore > computerScore) {
+        alert("You win!!")
+    }   else if (playerScore < computerScore) {
+        alert("You lose :(")
+    }   else {
+        alert("Tie")
+    }
     alert("player:" + playerScore + "computer:" + computerScore)
 }
 
