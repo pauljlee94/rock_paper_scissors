@@ -36,11 +36,11 @@ function game () {
         let result = playRound(playerPlay(), computerPlay())
         if (result == "W") {
             playerScore++
-            alert("player:" + playerScore + "computer:" + computerScore)
+            alert("You:" + playerScore + "\n"  + "Computer:" + computerScore)
             counter++
         }   else if (result == "L") {
             computerScore++
-            alert("player:" + playerScore + "computer:" + computerScore)
+            alert("You:" + playerScore + "\n" + "Computer:" + computerScore)
             counter++
         }   else if (result == "T"){
             alert("Tie")
@@ -57,7 +57,7 @@ function game () {
     }   else {
         alert("Tie")
     }
-    alert("player:" + playerScore + "computer:" + computerScore)
+    alert("You:" + playerScore + "\n" + "Computer:" + computerScore)
 }
 
 
